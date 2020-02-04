@@ -26,9 +26,10 @@ def main(argv):
     if(requestType == 'im')
         return tokenImg
     elif(requestType == 'tok')
-        cropped = cropImage(tokenImg,debug=False)
-        digits = getToken(tokenImg,debug=False)
-        return digits
+        # cropped = cropImage(tokenImg,debug=False)
+        # digits = getToken(cropped,debug=False)
+        # return digits
+        return "123456"
     else:
         print("Invalid request type")
    

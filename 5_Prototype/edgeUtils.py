@@ -5,15 +5,15 @@ import cv2
 import os
 
 #Takes a path to an image, and returns a cropped rectangle inside the image.
-def cropImage(filePath,debug=False):
-    if filePath is None:
-        raise TypeError("None Type Object was passed into cropImage.")
-        return None
-    elif not isinstance(filePath,str):
-        raise TypeError("Param for cropImage is not a string: " + str(type(filePath)))
-        return None
+def cropImage(image,debug=False):
+    # if filePath is None:
+    #     raise TypeError("None Type Object was passed into cropImage.")
+    #     return None
+    # elif not isinstance(filePath,str):
+    #     raise TypeError("Param for cropImage is not a string: " + str(type(filePath)))
+    #     return None
     try:
-        image = cv2.imread(filePath)
+        # image = cv2.imread(filePath)
         image = imutils.resize(image, height=500)
         edged = _getEdges(image,debug)
         # _showcase(image,edged)
@@ -22,10 +22,10 @@ def cropImage(filePath,debug=False):
             return None
         output = four_point_transform(image, displayCnt.reshape(4, 2))
         
-        # if(debug):
-        cv2.imshow("output",output)
-        print("Press a key to continue. Need to have one of the images selected!")
-        cv2.waitKey(0) #Doesn't work in debug mode for some reason.
+        if(debug):
+            cv2.imshow("output",output)
+            print("Press a key to continue. Need to have one of the images selected!")
+            cv2.waitKey(0) #Doesn't work in debug mode for some reason.
         
         return output
     except:
