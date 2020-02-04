@@ -1,5 +1,5 @@
 import os, cv2, imutils, sys, getopt
-
+   
 def isValidSelection(selection,min=1,max=9):
     return _RepresentsInt(selection) and (int(selection) >= min and int(selection) <= max)
             
@@ -11,14 +11,12 @@ def _RepresentsInt(s):
         return False
 
 def cropSection(section,debug=False):
-    #Placeholder for a method that grabs a screenshot from the box.
+    #Placeholder for grabbing a screenshot of the token
     filename = "ttt.jpg"
     filePath = os.path.join(os.getcwd(),filename)
     
-    if(isValidSelection(selection)):
-        selection = int(selection)
-    else:
-        print("EXCEPTION MESSAGE!!!")
+    if(isValidSelection(section)):
+        section = int(section)
 
     im = cv2.imread(filePath)
     im = imutils.resize(im, height=500)
@@ -41,12 +39,11 @@ def cropSection(section,debug=False):
     w = 140
 
     cropImg = im.copy()[y:y+h, x:x+w]
-    
     if(debug):
         cv2.rectangle(im,(x,y),(x+w,y+h),(0,255,0),2)
         cv2.imshow("Cropped",cropImg)
         cv2.imshow("BoundingBox",im)
         cv2.waitKey()  
         cv2.destroyAllWindows()
-        
+    
     return cropImg

@@ -3,7 +3,7 @@ import imutils
 import cv2
 import numpy as np
 
-def getToken(cropped,debug=False):
+def getDigits(cropped,debug=False):
     warped = cv2.cvtColor(cropped, cv2.COLOR_BGR2GRAY)
     
     thresh = cv2.threshold(warped,0,255,
@@ -62,8 +62,12 @@ def getToken(cropped,debug=False):
     #     _debugDigitBoundingBoxes(digitCnts,cropped)
         
     digits = _contoursToDigits(digitCnts,thresh,cropped,minWidth,debug)
-    return digits
     
+    digitsStr = ""
+    for i in digits: 
+        digitsStr .= i
+    
+    return digitsStr   
         
 def _contoursToDigits(digitCnts,thresh,cropped,minWidth,debug):
     DIGITS_LOOKUP = {
