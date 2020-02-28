@@ -10,13 +10,15 @@ def _RepresentsInt(s):
     except ValueError:
         return False
 
-def cropSection(section,debug=False):
+def cropSection(section,min=1,max=9,debug=False):
     #Placeholder for grabbing a screenshot of the token
     filename = "ttt.jpg"
     filePath = os.path.join(os.getcwd(),filename)
     
-    if(isValidSelection(section)):
+    if(isValidSelection(section,min,max)):
         section = int(section)
+    else:
+        return None
 
     im = cv2.imread(filePath)
     im = imutils.resize(im, height=500)

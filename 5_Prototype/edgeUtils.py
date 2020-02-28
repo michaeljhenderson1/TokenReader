@@ -5,12 +5,12 @@ import cv2
 import os
 
 #Takes a path to an image, and returns a cropped rectangle inside the image.
-def cropImage(image,debug=False):
+def cropScreen(image,debug=False):
     # if filePath is None:
-    #     raise TypeError("None Type Object was passed into cropImage.")
+    #     raise TypeError("None Type Object was passed into cropScreen.")
     #     return None
     # elif not isinstance(filePath,str):
-    #     raise TypeError("Param for cropImage is not a string: " + str(type(filePath)))
+    #     raise TypeError("Param for cropScreen is not a string: " + str(type(filePath)))
     #     return None
     try:
         # image = cv2.imread(filePath)
