@@ -65,7 +65,7 @@ def getDigits(cropped,debug=False):
     
     digitsStr = ""
     for i in digits: 
-        digitsStr .= i
+        digitsStr += i
     
     return digitsStr   
         
